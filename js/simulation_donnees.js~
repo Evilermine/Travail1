@@ -1,0 +1,97 @@
+class Catalogue {
+    constructor()
+    {
+	this.catalogue = [];
+    }
+
+    add_item(produit)
+    {
+	this.catalogue.push(produit);
+    }
+
+    get_item_with_id(id)
+    {
+	return this.catalogue[id];
+    }
+
+    set_items_name(id, newname)
+    {
+	this.catalogue[id].set_name(newname);
+    }
+    get_length()
+    {
+	return this.catalogue.length;
+    }
+    print_products()
+    {
+	for (var i = 0; i < this.catalogue.length; i++)
+	{
+	    this.catalogue[i].print();
+	}
+    }
+    
+}
+
+class Produit {
+    constructor(obj_id, obj_prix, obj_name, obj_img, obj_desc)
+    {
+	this.id = obj_id;
+	this.prix = obj_prix;
+	this.name = obj_name;
+	this.img = obj_img;
+	this.desc = obj_desc;
+    }
+    
+    get_id() { return this.id; }
+    get_prix() { return this.prix; }
+    get_name() { return this.name; }
+    get_img() { return this.img; }
+    get_desc() { return this.desc; }
+    
+    set_id(newid) { this.id = newid; }
+    set_prix(newprix) { this.prix = newprix; }
+    set_name(newname) { this.name = newname; }
+    set_img(newimg) { this.img = newimg; }
+    set_desc(newdesc) { this.desc = newdesc; }
+    
+    print() {
+	var msg_str = "produit: " +
+	    this.id + ", " +
+	    this.name + ", " + 
+	    this.prix + ", " +
+	    this.img  + ", " +	    
+	    this.desc;
+
+	alert(msg_str);
+    }
+}
+var cat = new Catalogue();
+
+for (var i = 0; i < 9; i++)
+{
+    var name_prod = "obj" + (i+1);
+    var img_prod = "img" + (i+1) + ".jpeg";
+    var prix_prod = (i+1) + ".00$";
+    var desc_prod = "description # " + (i+1);
+    var prod = new Produit(i+1, prix_prod, name_prod, img_prod, desc_prod);
+    cat.add_item(prod);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
