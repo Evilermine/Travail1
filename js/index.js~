@@ -1,8 +1,0 @@
-var si = getCookie("signed_in");
-
-if (si != "y")
-{
-    setCookie("signed_in", "n");
-}
-
-
