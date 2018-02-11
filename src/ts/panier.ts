@@ -41,7 +41,7 @@ function ajout_objet_a_panier(id : number) : void
 
 }
 
-function parse_objet_string() : String
+export function parse_objet_string() : string
 {
     if ( typeof counter == null ) {
 	    counter = 0;
@@ -56,7 +56,7 @@ function parse_objet_string() : String
     return res_str;
 }
 
-function retourne_nb_articles_panier() : number
+export function retourne_nb_articles_panier() : number
 {
     var nb_articles_str = getCookie("compteur_panier");
 

@@ -1,8 +1,14 @@
 import {getCookie, setCookie} from "./cookie"
 
-function init_connection() : void
+export function init_connection() : void
 {
     var si : number = +getCookie("signed_in");
+
+    var oSignin = document.getElementById("signin");
+    oSignin.addEventListener('click', (e:Event) => this.signin_callback());
+
+    var oSignup = document.getElementById("signup");
+    oSignup.addEventListener('click', (e:Event) => this.signup_callback());
 
     if (si == null)
     {
@@ -31,7 +37,7 @@ export default function im_i_connected() : boolean
     return false;
 }
 
-function signup_callback() : void
+export function signup_callback() : void
 {
     var newuser = <HTMLInputElement>document.getElementById("inputEmail");
     var newpass = <HTMLInputElement>document.getElementById("inputPassword");
@@ -43,27 +49,25 @@ function signup_callback() : void
     setCookie("Password", newpass.value);
     
     alert("Inscription Reussie!");
-    window.location.assign("index.html");
+    window.location.assign("../html/signin.html");
 }
 
-function signin_callback() : void
+export function signin_callback() : void
 {
     var user_signed = getCookie("Username");
     var pass_of_user = getCookie("Password");
 
     var u = <HTMLInputElement>document.getElementById("inputEmail");
     var p = <HTMLInputElement>document.getElementById("inputPassword");
-
+    
     if (pass_of_user == p.value &&
         user_signed == u.value)
     {
-	connection_client();
-	window.location.assign("./index.html");
+        connection_client();
+        window.location.assign("../index.html");
     }
     else
     {
-	alert("Wrong username or password.");
+	    alert("Wrong username or password.");
     }
 }
-
-init_connection();

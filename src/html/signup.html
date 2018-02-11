@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <!-- Custom styles for this template -->
-    <link href="./css/sign.css" rel="stylesheet">
+    <link href="../css/sign.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
@@ -26,10 +26,9 @@
       <input type="email" id="inputEmail" class="form-control" placeholder="adresse email" required autofocus>
       <label for="inputPassword" class="sr-only">mot de passe</label>
       <input type="password" id="inputPassword" class="form-control" placeholder="mot de passe" required>
-	<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="signup_callback()" >S'inscrire</button>
+	<button class="btn btn-lg btn-primary btn-block" type="submit" id="signup">S'inscrire</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
-    <script src="./Javascript/cookie.js"></script>
-    <script src="./Javascript/connection.js"></script>    
   </body>
+  <script src="../bundle.js"></script>
 </html>

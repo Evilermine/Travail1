@@ -7,7 +7,7 @@ module.exports = {
         filename: "bundle.js"
     },
     resolve: {
-        extensions: [".js", ".ts", ".html"]
+        extensions: [".js", ".ts", ".html", ".css"]
     },
     module: {
         loaders: [
@@ -25,7 +25,21 @@ module.exports = {
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loader: "html-loader?exportAsEs6Default"
-            }
+            },
+			{
+				test: /\.(jpe?g|png|gif)$/i,
+				loader:"file-loader",
+				exclude: /node_modules/,
+				query:{
+					name:'[name].[ext]',
+					outputPath:'images/'
+				}
+			},
+			{
+				test: /\.css$/,
+				loaders: ["style-loader","css-loader"],
+				exclude: /node_modules/
+			}
         ]
     }
 };
