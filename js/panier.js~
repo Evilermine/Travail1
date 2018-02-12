@@ -1,0 +1,38 @@
+function incremente_compteur_panier()
+{
+    var pan = getCookie("compteur_panier");
+
+    pan_int = parseInt(pan);
+    pan_int = pan_int + 1;
+
+    setCookie("compteur_panier", pan_int);
+}
+
+function decremente_compteur_panier()
+{
+    var pan = getCookie("compteur_panier");
+
+    pan_int = parseInt(pan);
+    pan_int = pan_int - 1;
+
+    setCookie("compteur_panier", pan_int);
+}
+
+function ajout_objet_a_panier(id)
+{
+    var objets = getCookie("objets_panier");
+
+    objets = objets + ";" + id;
+    setCookie("objets_panier", objets);
+}
+
+function ajouter_panier(id)
+{
+    var con = im_i_connected();
+    if (con == false)
+    {
+	window.location = "signin.html";
+    }
+    incremente_compteur_panier();
+    ajout_objet_a_panier();
+}
